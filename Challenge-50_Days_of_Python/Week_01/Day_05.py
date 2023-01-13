@@ -1,45 +1,43 @@
-"""
-                  #PSEUDOCODE
-    Function called my_discount
-    Asks for USERINPUTS - price and discount
-    Calculates and returns price after discount
-"""
-
-def main():
-  print(my_discount())
+# Day_05: My Discount
 
 def my_discount():
-  price = float(input("Please Enter Price for Item: "))
-  discount = float(input("Please Enter Discount for Item: ")/100)
+    """
+        Function called my_discount
+        Asks for USERINPUTS - price and discount
+        Calculates and returns price after discount
+    """
+    print("\nDo you want to check the price of an item? yes or no\n")
+    item_price = input("\tChoice? ").lower()
+    while item_price != "no":
+        try:
+            price = float(input("\nPlease Enter the Item's Price: \t"))
+            discount = float(input("\nPlease Enter Discount on label: \t"))/100
+            return (price - price*discount)
+        except ValueError:
+            print("\n\tOne of the entries is incorrect.\n\tPlease Enter Again Correctly")
 
-  return (price - price*discount)
 
-if __name__ = "__main__":
-  main()
+print(f"\nThe price for the item is {my_discount()} Naira")
 
-                #Extra Challenge
-"""
-                  #PSEUDOCODE
-# A function that takes one argument - a list of strings
-# returns a formatted list of tuple
 
-def main():
-  students = ['Male', 'Female', 'Female', 'Male', 'Male', 'Male','Female', 'Mle', 'Female', 'Male', 'Female', 'Male', 'Female']
-  result = tuple_of_sex(students)
-  print(result)
+# Extra Challenge
 
-def tuple_of_sex(n):
-  j = 0
-  k = 0
-  for student in range(i=0, len(n)):
-    if student == 'Male':
-      list1 = ('Male', j+=1)
-      #list1 = ('Male', n.count(i))
-    elif student == 'Female':
-      list1 = ('Female', k+=1)
-      #list2 = ('Female', n.count(i))
-  return [list1, list2]
+students = ['Male', 'Female', 'Female', 'Male', 'Male', 'Male',
+            'Female', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female']
 
- if __name__ == "__main__":
-  main()
-"""
+
+def tuple_of_sex(n: list) -> list:
+    """
+        A function that takes one argument - a list of strings
+        returns a formatted list of tuple
+    """
+
+    j = n.count('Male')
+    k = n.count('Female')
+    Male = ('Male', j)
+    Female = ('Female', k)
+    Sex = [Male, Female]
+    return Sex
+
+
+print(tuple_of_sex(students))

@@ -1,50 +1,54 @@
-"""
-                  #PSEUDOCODE
-    Function called equal_strings
-    takes two arguments - strings
-    compares if the have the same characters and equal length
-    returns True is the above condition is satified else it should return False
-"""
+# Day_11: Equal Strings
+
 
 def main():
-  str_1 = input("Enter a string or character sequence: ")
-  str_2 = input("Enter another string or character sequence: ")
+    """
+        takes two arguments - strings
+        compares if the have the same characters and equal length
+        returns True is the above condition is satified else it should return False
+    """
+    while True:
+        str_1 = input("\nEnter a string or character sequence: \t")
+        str_2 = input("\nEnter another string or character sequence: \t")
+        try:
+            result = equal_strings(str_1, str_2)
+        except ValueError:
+            print("\nKindly Re-enter values.")
+        else:
+            print(result)
+        print("\nDo you want to try again? yes or no")
+        check_string = input("Choice: \t")
+        if check_string == "no":
+            break
 
-  result = equal_strings(str_1, str_2)
-  print(result)
 
 def equal_strings(n, m):
-  # Try using List Comprehension
-  for i in range(i=0, len(n)):
-    for j in range(i=i+1, len(n)):
-      if n == m and len(n) == len(m):
-        return "True"
-      else:
-        return "False"
+    # Try using List Comprehension
+    for i in range(0, len(n)):
+        for j in range(1, len(n)):
+            if n == m and len(n) == len(m):
+                return "True"
+            else:
+                return "False"
 
-if name = "__main__":
-  main()
 
-                             #Extra Challenge
-"""
-                  #PSEUDOCODE
-# A function called swap_values
-# takes a list of numbers
-# swaps the first element with the last 
+main()
 
-def main():
-  list_num = [2, 4, 67, 7]
-  result = swap_values(list_num)
-  print(result)
 
-def swap_values(n):
-  temp = n
-  for value in range(len(temp)):
-    temp[0] = n[len(n-1)]
-    temp[len(n-1)] = n[0]
-  n = temp
-  return n
+# Extra Challenge
 
-if name = "__main__":
-  main()
-"""
+def swap_values(new_list: list) -> list:
+    """
+        takes a list of numbers
+        swaps the first element with the last
+    """
+    size = len(new_list)
+
+    temp = new_list[0]
+    new_list[0] = new_list[size - 1]
+    new_list[size - 1] = temp
+    return new_list
+
+
+list_num = input("\nEnter numbers separated by whitespaces: \t").split()
+print(swap_values(list_num))

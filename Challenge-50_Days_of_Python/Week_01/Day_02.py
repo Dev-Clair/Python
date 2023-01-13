@@ -1,56 +1,41 @@
-"""
-                  #PSEUDOCODE
-    in the main function declare a variable
-    assign a list of strings to the variable
-    call a function that takes a list as argument
-    function converts string to integers and sums the list
-    returns value back to caller
-"""
+# Day_02: Convert Add
 
-def main():
-  list_string = ['4','8','12','16','20','24','28']
-  print(convert_add(list_string))
+list_string = ['4', '8', '12', '16', '20', '24', '28']
 
-def convert_add(n):
-  n = list[map(int, n)]
-  result = 0
 
-  for i in range(len(n)):
-    result = result + i
-  return result
+def convert_add(lst_strng: list):
+    """
+        function called convert_add
+        takes a list as argument
+        converts string to integers and sums the list
+        returns value back to caller
+    """
+    new_list = list(map(int, lst_strng))
+    return sum(new_list)
 
-  """
-  n = list[map(int, n)]
-  for i in range(len(n)):
-    result = sum(i)
-  return result
-  """
 
-if __name__ = "__main__":
-  main()
+print(convert_add(list_string))
 
-                #Extra Challenge
-"""
-                  #PSEUDOCODE
-# in the main function declare a variable
-# call a function that takes a string as argument
-# function should check if there are duplicates
-# returns duplicate if any
-# else function should return "No Duplicates"
 
-def main():
-  list_string = ["Rotimi", "Emeka", "Leye", "Tupac", "Samuel", "Sunday", "Joshua", "Emmanuel", "Andrew", "Destiny", "Agogo", "Samuel"]
-  result = check_duplicates(list_string)
-  print("The duplicate string is" + result)
+# Extra Challenge
 
-def check_duplicate(n):
-  for i in range(i=0, len(n)):
-    for j in range(i=i+1, len(n)):
-      if i == j:
-        return i
-      else:
-        return "No Duplicates"
-        
-  if __name__ = "__main__":
-    main()
-"""
+list_string = ["Rotimi", "Emeka", "Leye", "Tupac", "Samuel", "Sunday",
+               "Joshua", "Emmanuel", "Andrew", "Destiny", "Agogo", "Samuel"]
+
+
+def check_duplicate(new_list: list):
+    """
+        checks if there are duplicates
+        returns duplicate if any
+        else function returns "No Duplicates"
+    """
+
+    for value in range(0, len(new_list)):
+        for check in range(1, len(new_list)):
+            if value == check:
+                return value
+    else:
+        return f"No Duplicates"
+
+
+print(f"\n{check_duplicate(list_string)}")

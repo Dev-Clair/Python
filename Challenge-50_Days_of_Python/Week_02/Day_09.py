@@ -1,56 +1,37 @@
-"""
-                  #PSEUDOCODE
-    Function called biggest_odd
-    takes a string of numbers as argument
-    returns the biggest odd number in the list
-"""
-
-def main():
-  value = input("Enter a string of integer numbers: ")
-  print(biggest_odd(value))
-
-def biggest_odd(n):
-  list_num = list[map(str, n)]
-  for num in range(num=0, len(list_num)):
-    for check in range(num = num+1, len(list_num)):
-      if num % 2 != 0:
-        try:
-          num > check
-          max_odd = num
-        except (num < check, num == check):
-          max_odd = check
-      else:
-        continue
-  return max_odd
-
-if __name__ == "__main__":
-  main()
+# Day_09: Biggest Odd
 
 
-                              #Extra Challenge
-"""
-                  #PSEUDOCODE
-#Function called zeros_last
-#takess an argument - a list of input from the user
-#if the list contains zeros, it moves them to the end of the list
-# whilee maintaining th eorder of the other elements 
-#else, if there are no zeros, it returns a sorted list in ascendig order
+def biggest_odd():
+    """
+        takes a string of numbers as argument
+        returns the biggest odd number in the list
+    """
+    value = input(
+        "\nEnter a string of integer numbers (Hint: without whitespaces): ")
+    # use list comprehension to iterare through the string and append result to the list variable num_odd
+    num_odd = [val for val in value if int(val) % 2 != 0]
+    return max(num_odd)
 
-def main():
-  list_num = list(map(str, input("Enter the values of the list separated by white spaces: \n""Press Enter to terminate input process\n").split()))
-  print(zeros_last(list_num))
 
-def zeros_last(n):
-  result = []
-  for num in range(num=0, len(n)):
-    if num == 0:
-      n.insert(len(n)-1, num)
-      n.remove(num)
-    else:
-      continue
-  result = n
-  return result
+print(biggest_odd())
 
-if __name__ == "__main__":
-  main()
-"""
+
+# Extra Challenge
+
+# def zeros_last(value: list) -> list:
+#     """
+#         takes an argument - a list of input from the user
+#         if the list contains zeros, it moves them to the end of the list
+#         while maintaining the order of the other elements
+#         else, if there are no zeros, it returns a sorted list in ascending order
+#     """
+#     result = [x for x in value if x != 0]
+#     for num in value:
+#         if num not in result:
+#             result.append(num)
+#     return result
+
+
+# list_num = input(
+#     "\nEnter the values of the list separated by white spaces: \t").split()
+# print(f"\n{zeros_last(list_num)}")
